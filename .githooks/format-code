@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# I need FOLDERS to split, so I disable this check:
+# shellcheck disable=SC2086
+
+FOLDERS="src tests"
+LINE_LENGTH="100"
+
+isort ${FOLDERS}
+black --line-length "${LINE_LENGTH}" ${FOLDERS}
+flake8 ${FOLDERS}
