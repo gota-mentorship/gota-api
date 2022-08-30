@@ -15,13 +15,13 @@
 
 ### Test
 
-1. Install the package (and its dependencies)
-    ```bash
-    poetry install
-    ```
 1. Activate a virtual environment
     ```bash
     poetry shell
+    ```
+1. Install the package (and its dependencies)
+    ```bash
+    poetry install
     ```
 1. Run tests:
     ```bash
