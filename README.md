@@ -7,10 +7,10 @@
 
 ## Development
 
-### Register git hooks
+### Format
 
 ```bash
-git config --local core.hooksPath .githooks/
+./bin/format-code
 ```
 
 ### Test
