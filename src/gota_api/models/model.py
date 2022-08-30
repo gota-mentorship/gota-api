@@ -3,8 +3,10 @@ from typing import Optional
 
 from pydantic import BaseModel
 
+ModelID = uuid.UUID
+
 
 class Model(BaseModel):
-    id: uuid.UUID
+    id: ModelID
     created_at: int
     updated_at: Optional[int]

@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Optional
 
-from gota_api.models.base import Model
+from gota_api.models.model import Model
 from gota_api.models.user import UserSkill
 
 
