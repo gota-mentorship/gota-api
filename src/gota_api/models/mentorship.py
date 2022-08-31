@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Optional
 
-from gota_api.models.model import Model
+from gota_api.models.model import Model, ModelID
 from gota_api.models.user import UserSkill
 
 
@@ -25,3 +25,6 @@ class Mentorship(Model):
     started_at: int
     ended_at: int
     matched_skills: list[UserSkill]
+
+
+MentorshipID = ModelID

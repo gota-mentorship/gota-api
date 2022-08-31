@@ -7,6 +7,6 @@ ModelID = uuid.UUID
 
 
 class Model(BaseModel):
-    id: ModelID
-    created_at: int
+    id: Optional[ModelID]
+    created_at: Optional[int]
     updated_at: Optional[int]

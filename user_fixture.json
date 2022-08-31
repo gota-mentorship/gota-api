@@ -1,0 +1,9 @@
+{
+    "name": "Mario",
+    "email": "email@email.email",
+    "skills": [
+        "BACKEND",
+        "FRONT_END"
+    ],
+    "availability": "ONCE_A_WEEK"
+}

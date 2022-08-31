@@ -16,8 +16,8 @@ class MemoryStorage(Storage):
     def get_items(self) -> list[StorageItem]:
         return [item for item in self._items.values()]
 
-    def get_item(self, item_id: StorageItemID) -> Union[StorageItem, None]:
-        return self._items.get(item_id)
+    def get_item(self, id: StorageItemID) -> Union[StorageItem, None]:
+        return self._items.get(str(id))
 
     def save_item(self, item: StorageItem) -> None:
-        self._items[item.id] = item
+        self._items[str(item.id)] = item

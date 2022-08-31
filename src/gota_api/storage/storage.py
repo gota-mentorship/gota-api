@@ -18,18 +18,18 @@ class Storage(ABC):
         """
 
     @abstractmethod
-    def get_item(self, item_id: StorageItemID) -> Union[StorageItem, None]:
+    def get_item(self, id: StorageItemID) -> Union[StorageItem, None]:
         """
-        Get the item for the given item_id.
+        Get the item for the given id.
 
-        :param item_id: the identifier of the item to be retrieved from storage
+        :param id: the identifier of the item to be retrieved from storage
         :return: item found in storage or None
         """
 
     @abstractmethod
     def save_item(self, item: StorageItem) -> None:
         """
-        Save the given item in storage using the item_id as the unique identifier.
+        Save the given item in storage using the id as the unique identifier.
 
         :param item: the item to be saved in the storage
         :return: void

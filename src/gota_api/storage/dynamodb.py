@@ -29,9 +29,9 @@ class DynamoDBStorage(Storage):
         response = self._table.scan()
         return response.get("Items", [])
 
-    def get_item(self, item_id: StorageItemID) -> Union[StorageItem, None]:
-        response = self._table.get_item(Key={self._partition_key: item_id})
+    def get_item(self, id: StorageItemID) -> Union[StorageItem, None]:
+        response = self._table.get_item(Key={self._partition_key: str(id)})
         return response.get("Item")
 
     def save_item(self, item: StorageItem) -> None:
-        self._table.put_item(Item=item)
+        self._table.put_item(Item=dict(item))

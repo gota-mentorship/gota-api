@@ -20,7 +20,7 @@ router = APIRouter(prefix="/users", tags=["users"])
 # TODO: drop unknown fields from model
 # Reason is the fact FastAPI doesn't do this validation
 # See https://github.com/tiangolo/fastapi/pull/1297
-@router.post("/", response_model=User, response_model_include={"id"})
+@router.post("", response_model=User, response_model_include={"id"})
 def create_user(user: User) -> User:
     return repository.create_item(user)
 
@@ -28,22 +28,23 @@ def create_user(user: User) -> User:
 # TODO: drop unknown fields from model
 # Reason is the fact FastAPI doesn't do this validation
 # See https://github.com/tiangolo/fastapi/pull/1297
-@router.put("/{user_id}")
-def update_user(user_id: uuid.UUID, user: User) -> None:
+@router.put("/{id}")
+def update_user(id: uuid.UUID, user: User) -> None:
+    user.id = id
     try:
-        return repository.update_item(user_id, user)
+        return repository.update_item(user)
     except ItemNotFoundError:
         raise HTTPException(status_code=404)
 
 
-@router.get("/", response_model=list[User])
+@router.get("", response_model=list[User])
 def get_users() -> list[User]:
     return repository.get_items()
 
 
-@router.get("/{user_id}")
-def get_user(user_id: uuid.UUID) -> User:
+@router.get("/{id}")
+def get_user(id: uuid.UUID) -> User:
     try:
-        return repository.get_item(user_id)
+        return repository.get_item(id)
     except ItemNotFoundError:
         raise HTTPException(status_code=404)

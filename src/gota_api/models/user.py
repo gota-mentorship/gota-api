@@ -2,7 +2,7 @@ from enum import Enum
 
 from pydantic import EmailStr
 
-from gota_api.models.model import Model
+from gota_api.models.model import Model, ModelID
 
 
 class UserAvailability(str, Enum):
@@ -25,3 +25,6 @@ class User(Model):
     email: EmailStr
     availability: UserAvailability
     skills: list[str]
+
+
+UserID = ModelID

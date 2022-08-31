@@ -19,11 +19,11 @@ class Repository(ABC):
         """
 
     @abstractmethod
-    def get_item(self, item_id: StorageItemID) -> Union[StorageItem, ItemNotFoundError]:
+    def get_item(self, id: StorageItemID) -> Union[StorageItem, ItemNotFoundError]:
         """
         Get the item with the item_id from the repository.
 
-        :param item_id: the id of the item to be retrieved from the repository
+        :param id: the id of the item to be retrieved from the repository
         :raises ItemNotFoundError: if the item wasn't found
         :return: the item found
         """
@@ -33,18 +33,15 @@ class Repository(ABC):
         """
         Creates the item in the repository. An id and created at timestamp is auto-generated.
 
-        :param item: the item to be saved
-        :return: the saved item
+        :param item: the item to be created
+        :return: the created item
         """
 
     @abstractmethod
-    def update_item(
-        self, item_id: StorageItemID, item: StorageItem
-    ) -> Union[None, ItemNotFoundError]:
+    def update_item(self, item: StorageItem) -> Union[None, ItemNotFoundError]:
         """
         Update the item with the given id in the repository.
 
-        :param item_id: the unique identifier of the item to be updated
         :param item: the item to be saved in the repository
         :raises ItemNotFoundError: if the item isn't present in the repository
         :return: void
