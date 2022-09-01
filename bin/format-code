@@ -1,11 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# I need FOLDERS to split, so I disable this check:
-# shellcheck disable=SC2086
+set -o errexit  # fail script on any individual command failing
+set -o nounset  # expand an unset variable will cause a fatal error
+set -o pipefail # prevent errors in a pipeline from being masked
+set -o xtrace   # trace commands before executing them
 
-FOLDERS="src tests"
-LINE_LENGTH="100"
-
-isort ${FOLDERS}
-black --line-length "${LINE_LENGTH}" ${FOLDERS}
-flake8 ${FOLDERS}
+poetry run isort . && poetry run black . && poetry run flake8
