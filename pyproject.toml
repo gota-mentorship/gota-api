@@ -17,6 +17,7 @@ pytest = "^7.1.2"
 black = "^22.6.0"
 isort = "^5.10.1"
 flake8 = "^5.0.4"
+Flake8-pyproject = "^1.1.0"
 
 [tool.black]
 line-length = 100
@@ -29,6 +30,12 @@ profile = "black"
 line_length = 100
 skip_gitignore = true
 known_first_party = ["gota_api"]
+
+[tool.flake8]
+max_line_length = 100
+#    Black-compatible
+#    E203 and W503 have edge cases handled by black
+ignore = ['E203', 'W503']
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
