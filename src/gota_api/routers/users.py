@@ -17,6 +17,7 @@ storage = MemoryStorage()
 repository = UserRepository(storage)
 router = APIRouter(prefix="/users", tags=["users"])
 
+
 # TODO: drop unknown fields from model
 # Reason is the fact FastAPI doesn't do this validation
 # See https://github.com/tiangolo/fastapi/pull/1297
